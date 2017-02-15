@@ -32,7 +32,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/cclogo"
+        android:src="@drawable/cclogo"
         android:id="@+id/imageView2"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />

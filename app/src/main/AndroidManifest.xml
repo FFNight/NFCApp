@@ -31,7 +31,7 @@
         <activity android:name=".AESDemoActivity" />
         <activity android:name=".LoginConfirmActivity" />
         <activity android:name=".QRTutActivity" />
-        <activity android:name=".ChooseRoleActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
