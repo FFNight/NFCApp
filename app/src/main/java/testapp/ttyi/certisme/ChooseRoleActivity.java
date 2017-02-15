@@ -1,11 +1,8 @@
 package testapp.ttyi.certisme;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -17,14 +14,14 @@ public class ChooseRoleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choose_role);
 
         Button visitor_btn = (Button) findViewById(R.id.visitor_btn);
-        Button officer_btn = (Button) findViewById(R.id.officer_btn);
+        Button officer_btn = (Button) findViewById(R.id.next_btn);
 
         // If Visitor button is pressed
         visitor_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
 
-                    Intent intent = new Intent(ChooseRoleActivity.this, QRTutActivity.class);
+                    Intent intent = new Intent(ChooseRoleActivity.this, CheckLocationActivity.class);
                     intent.putExtra("EXTRA_FIN", "A1234567A"); // Hardcoded FIN just for the demo XD
                     startActivity(intent);
                 }

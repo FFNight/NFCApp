@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="testapp.ttyi.certisme">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <!-- package="com.androidsrc.openappfromurl" -->
     <application
         android:allowBackup="true"
@@ -31,7 +33,8 @@
         <activity android:name=".AESDemoActivity" />
         <activity android:name=".LoginConfirmActivity" />
         <activity android:name=".QRTutActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".CheckLocationActivity"></activity>
     </application>
 
 </manifest>
