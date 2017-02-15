@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="testapp.ttyi.certisme.MainActivity">
+        <activity android:name=".ChooseRoleActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,11 +26,12 @@
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
-        <activity android:name="testapp.ttyi.certisme.DisplayQRActivity" />
-        <activity android:name="testapp.ttyi.certisme.RSADemoActivity" />
-        <activity android:name="testapp.ttyi.certisme.AESDemoActivity" />
-        <activity android:name="testapp.ttyi.certisme.LoginConfirmActivity" />
-        <activity android:name="testapp.ttyi.certisme.QRTutActivity"></activity>
+        <activity android:name=".DisplayQRActivity" />
+        <activity android:name=".RSADemoActivity" />
+        <activity android:name=".AESDemoActivity" />
+        <activity android:name=".LoginConfirmActivity" />
+        <activity android:name=".QRTutActivity" />
+        <activity android:name=".ChooseRoleActivity"></activity>
     </application>
 
 </manifest>
