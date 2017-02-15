@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "790377207335",
+    "firebase_url": "https://nricfintest.firebaseio.com",
+    "project_id": "nricfintest",
+    "storage_bucket": "nricfintest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790377207335:android:d527e4298eb2f69f",
+        "android_client_info": {
+          "package_name": "testapp.ttyi.certisme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "790377207335-hm704h5isp3krvkvgu71gbj8kvkoo5ck.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "testapp.ttyi.certisme",
+            "certificate_hash": "0ADA65C6553942ABFED65277099EAA527C34005B"
+          }
+        },
+        {
+          "client_id": "790377207335-kcvtf44te0dcahiafl00pto16qmuqisa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOX_lvM-mC3aZ_2rsirN7pKsiSZC4cMlc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "790377207335-kcvtf44te0dcahiafl00pto16qmuqisa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="testapp.ttyi.certisme">
+
+    <!-- package="com.androidsrc.openappfromurl" -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="testapp.ttyi.certisme.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- This part for redirection from qr_redirect.html -->
+            <intent-filter>
+                <data android:scheme="anton" />
+
+                <action android:name="com.androidsrc.launchfrombrowser" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity android:name="testapp.ttyi.certisme.DisplayQRActivity" />
+        <activity android:name="testapp.ttyi.certisme.RSADemoActivity" />
+        <activity android:name="testapp.ttyi.certisme.AESDemoActivity" />
+        <activity android:name="testapp.ttyi.certisme.LoginConfirmActivity" />
+        <activity android:name="testapp.ttyi.certisme.QRTutActivity"></activity>
+    </application>
+
+</manifest>

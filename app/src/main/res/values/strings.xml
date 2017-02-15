@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CertIsMe</string>
+    <string name="title_activity_login_homepage">LoginHomepageActivity</string>
+    <string name="title_activity_qrtut">QRTutActivity</string>
+</resources>
