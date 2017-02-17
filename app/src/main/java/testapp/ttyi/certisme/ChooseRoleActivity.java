@@ -32,7 +32,7 @@ public class ChooseRoleActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
-                Intent intent = new Intent(ChooseRoleActivity.this, QRTutActivity.class);
+                Intent intent = new Intent(ChooseRoleActivity.this, APOClockActivity.class);
                 intent.putExtra("EXTRA_FIN", "A1234567A"); // Hardcoded FIN just for the demo XD
                 startActivity(intent);
             }

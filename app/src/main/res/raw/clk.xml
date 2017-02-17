@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+ <clock>
+     <ClkIn1>DATE 1</ClkIn1>
+     <ClkOut1>DATE 2</ClkOut1>
+     <ClkIn2>DATE 1</ClkIn2>
+     <ClkOut2>DATE 2</ClkOut2>
+     <ClkIn3>DATE 1</ClkIn3>
+     <ClkOut3>DATE 2</ClkOut3>
+ </clock>

@@ -3,6 +3,8 @@
     package="testapp.ttyi.certisme">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <!-- package="com.androidsrc.openappfromurl" -->
     <application
@@ -34,7 +36,8 @@
         <activity android:name=".LoginConfirmActivity" />
         <activity android:name=".QRTutActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".CheckLocationActivity"></activity>
+        <activity android:name=".CheckLocationActivity" />
+        <activity android:name=".APOClockActivity"></activity>
     </application>
 
 </manifest>
