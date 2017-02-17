@@ -1,6 +1,7 @@
 package testapp.ttyi.certisme;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -8,13 +9,19 @@ import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Xml;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -29,11 +36,14 @@ import org.xml.sax.SAXException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
+import org.xmlpull.v1.XmlSerializer;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -145,18 +155,17 @@ public class APOClockActivity extends AppCompatActivity {
 
         Log.d("MyLog", "Pass here checkClkOut()");
 
+
+
         String clkO1 = null;
 
         try {
 
-            String filename = "clk.xml";
-            String path = "/storage/sdcard/CertIsMe/" + filename;
-            File f2 = new File(path);  //
-            Uri xmlUri = Uri.fromFile(f2);
+            FileInputStream inFile = openFileInput("clk.xml");
 
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(f2);
+            Document doc = dBuilder.parse(inFile);
 
             //optional, but recommended
             //read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
@@ -192,14 +201,12 @@ public class APOClockActivity extends AppCompatActivity {
 
         try {
 
-            String filename = "clk.xml";
-            String path = "/storage/sdcard/CertIsMe/" + filename;
-            File f2 = new File(path);  //
-            Uri xmlUri = Uri.fromFile(f2);
+            FileInputStream inFile = openFileInput("clk.xml");
 
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(f2);
+            //Document doc = dBuilder.parse(f2); //Original
+            Document doc = dBuilder.parse(inFile);
 
             //optional, but recommended
             //read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
@@ -254,14 +261,12 @@ public class APOClockActivity extends AppCompatActivity {
 
         try {
 
-            String filename = "clk.xml";
-            String path = "/storage/sdcard/CertIsMe/" + filename;
-            File f2 = new File(path);  //
-            Uri xmlUri = Uri.fromFile(f2);
+            //FileOutputStream inFile = openFileOutput("clk.xml", Context.MODE_APPEND);
+
 
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(f2);
+            Document doc = dBuilder.parse(this.openFileInput("clk.xml"));
 
             //optional, but recommended
             //read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
@@ -297,14 +302,12 @@ public class APOClockActivity extends AppCompatActivity {
         try {
 
             // http://stackoverflow.com/questions/8296182/how-to-get-the-uri-of-a-image-stored-on-the-sdcard
-            String filename = "clk.xml";
-            String path = "/storage/sdcard/CertIsMe/" + filename;
-            File f5 = new File(path);  //
-            Uri xmlUri = Uri.fromFile(f5);
+
+            FileInputStream inFile = openFileInput("clk.xml");
 
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-            Document doc = docBuilder.parse(f5);
+            Document doc = docBuilder.parse(this.openFileInput("clk.xml"));
 
             Log.d("MyLog", "Pass here 3");
 
@@ -352,7 +355,7 @@ public class APOClockActivity extends AppCompatActivity {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(new File(path));
+            StreamResult result = new StreamResult(this.openFileOutput("clk.xml", Context.MODE_PRIVATE));
             transformer.transform(source, result);
 
 
@@ -383,15 +386,11 @@ public class APOClockActivity extends AppCompatActivity {
 
         try {
 
-            // http://stackoverflow.com/questions/8296182/how-to-get-the-uri-of-a-image-stored-on-the-sdcard
-            String filename = "clk.xml";
-            String path = "/storage/sdcard/CertIsMe/" + filename;
-            File f = new File(path);  //
-            Uri xmlUri = Uri.fromFile(f);
 
+            // http://stackoverflow.com/questions/8296182/how-to-get-the-uri-of-a-image-stored-on-the-sdcard
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-            Document doc = docBuilder.parse(f);
+            Document doc = docBuilder.parse(this.openFileInput("clk.xml"));
 
             // Get the root element
             Node clock = doc.getFirstChild();
@@ -422,7 +421,7 @@ public class APOClockActivity extends AppCompatActivity {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(new File(path));
+            StreamResult result = new StreamResult(this.openFileOutput("clk.xml", Context.MODE_PRIVATE));
             transformer.transform(source, result);
 
 
