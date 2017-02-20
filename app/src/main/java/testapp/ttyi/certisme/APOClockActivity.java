@@ -472,7 +472,8 @@ public class APOClockActivity extends AppCompatActivity {
             Log.d("MyLog", "After file.createNewFile()");
             */
 
-            File file = new File("data/data/testapp.ttyi.certisme/files/clk.xml");
+            //File file = new File("data/data/testapp.ttyi.certisme/files/clk.xml"); // Only works on Ting Yi's PC for some reason
+            File file = new File(this.getFilesDir(), "clk.xml"); // Use this as it works on Chen Yang's PC (integrated)
             if (!file.exists()) {
                 try {
                     file.createNewFile();
