@@ -54,6 +54,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+// Chen yang
 public class APOClockActivity extends AppCompatActivity {
 
     private XmlPullParserFactory xmlFactoryObject;
