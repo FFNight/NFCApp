@@ -65,6 +65,13 @@ public class APOClockActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apoclock);
 
+       if(!fileExistance("clk.xml")) {
+           Log.d("MyLog", "Enter createClkXML()");
+           createClkXML();
+           Log.d("MyLog", "Back from createClkXML()");
+       };
+
+
         readClkXML();
 
         Button clkIn_btn = (Button) findViewById(R.id.clockIn_btn);
@@ -443,6 +450,124 @@ public class APOClockActivity extends AppCompatActivity {
         clkOut_btn.setEnabled(false);
 
     }
+
+    public boolean fileExistance(String fname){
+        File file = getBaseContext().getFileStreamPath(fname);
+        return file.exists();
+    }
+
+    public void createClkXML() {
+
+        String a = null, b = null, c = null, d = null, e = null, f = null;
+
+        try {
+
+            Log.d("MyLog", "Enter here");
+            // Create new file I think
+            /*
+            File file = new File("clk.xml");
+
+            file.getParentFile().mkdirs();
+            file.createNewFile();
+            Log.d("MyLog", "After file.createNewFile()");
+            */
+
+            File file = new File("data/data/testapp.ttyi.certisme/files/clk.xml");
+            if (!file.exists()) {
+                try {
+                    file.createNewFile();
+                } catch (IOException e00) {
+                    e00.printStackTrace();
+                }
+            }
+
+            FileOutputStream stream = new FileOutputStream(file);
+            try {
+                stream.write(("<?xml version=\"1.0\"?>\n" +
+                        " <clock>\n" +
+                        "     <ClkIn1>DATE 1</ClkIn1>\n" +
+                        "     <ClkOut1>DATE 2</ClkOut1>\n" +
+                        "     <ClkIn2>DATE 1</ClkIn2>\n" +
+                        "     <ClkOut2>DATE 2</ClkOut2>\n" +
+                        "     <ClkIn3>DATE 1</ClkIn3>\n" +
+                        "     <ClkOut3>DATE 2</ClkOut3>\n" +
+                        " </clock> ").getBytes());
+                Log.d("MyLog", "File written successfully???");
+            } finally {
+                stream.close();
+            }
+
+            Log.d("MyLog", "Pass try block");
+
+            // http://stackoverflow.com/questions/8296182/how-to-get-the-uri-of-a-image-stored-on-the-sdcard
+
+            /*
+            FileInputStream inFile = openFileInput("clk.xml");
+
+            DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+            Document doc = docBuilder.parse(this.openFileInput("clk.xml"));
+
+            Log.d("MyLog", "Pass here 3");
+
+            // Get the root element
+            Node clock = doc.getFirstChild();
+
+            // Get the staff element , it may not working if tag has spaces, or
+            // whatever weird characters in front...it's better to use
+            // getElementsByTagName() to get it directly.
+            // Node staff = company.getFirstChild();
+
+            // Get the staff element by tag name directly
+            //Node staff = doc.getElementsByTagName("ClkIn1").item(0);
+
+            // loop the staff child node
+            NodeList list = clock.getChildNodes();
+
+            for (int i = 0; i < list.getLength(); i++) {
+
+                Node node = list.item(i);
+
+                // get the salary element, and update the value
+                if ("ClkIn1".equals(node.getNodeName())) {
+                    node.setTextContent("0");
+                }
+                if ("ClkOut1".equals(node.getNodeName())) {
+                    node.setTextContent("0");
+                }
+                if ("ClkIn2".equals(node.getNodeName())) {
+                    node.setTextContent("0");
+                }
+                if ("ClkOut2".equals(node.getNodeName())) {
+                    node.setTextContent("0");
+                }
+                if ("ClkIn3".equals(node.getNodeName())) {
+                    node.setTextContent("0");
+                }
+                if ("ClkOut3".equals(node.getNodeName())) {
+                    node.setTextContent("0");
+                }
+
+            }
+
+            // write the content into xml file
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(this.openFileOutput("clk.xml", Context.MODE_PRIVATE));
+            transformer.transform(source, result);
+
+        */
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            Log.d("MyLog", "IOException occurred");
+        }
+
+
+    }
+
+
 
 }
 
